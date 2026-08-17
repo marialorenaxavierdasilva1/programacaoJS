@@ -8,3 +8,4 @@
 //toda variável precisa colocar let na frente, para declarar que é uma variável
 // toda variável precisa de aspas
 // Para fazer a concatenação, você precisa colocar o sinal de + entre as variáveis
+// acumulo:adicionar um novo valor na variavél
