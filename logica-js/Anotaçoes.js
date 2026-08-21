@@ -9,3 +9,11 @@
 // toda variável precisa de aspas
 // Para fazer a concatenação, você precisa colocar o sinal de + entre as variáveis
 // acumulo:adicionar um novo valor na variavél
+//let prompt = require("prompt-sync") () - importar
+// Comparadores
+//> maior
+//< menor
+// == igual
+//>= maior ou igual
+//<= menor ou igual
+//!= diferente

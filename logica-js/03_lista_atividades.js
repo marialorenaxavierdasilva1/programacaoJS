@@ -224,5 +224,6 @@ Mostre na tela a distância percorrida, a quantidade de litros utilizados,
 o consumo do carro e o valor total gasto com combustível.
 
 */
-
+ let distancia_percorrida
+ let quantidade_utilizada
  
