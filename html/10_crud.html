@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<h1>>, initial-scale=1.0">
+    <title>CRUD</title>
+</head>
+
+<body>
+    <h1>CRUD</h1>
+    <p>Create(Inserir)</p>
+    <p>Reade (buscar)</p>
+    <p>Update(alterar)</p>
+    <p>Delete(remover)</p>
+
+    <hr>
+
+    <input id="inputNome" placeholder="Digite um nome" />
+    <button onclick="inserir()">Salvar</button>
+
+    <ul id="listaUsuarios">
+
+    </ul>
+
+
+
+
+
+
+    <script>
+
+        //Dados mockados
+
+        let nomes = ["Conrado", "caio", "Felipe", "Rafael", "Ingrid"] //Array
+
+        buscarTodos()
+        function inserir(){
+            let nome = document.getElementById("inputNome").value
+            
+            if(nome.trim().length < 3){
+                alert("Usuário incorreto. Verifique e tente novamente...")
+                return
+            }
+            nomes = nomes.concat(nome)
+            buscarTodos()
+            document.getElementById("inputNome").value = " "
+            
+           
+            
+        }
+
+        function buscarTodos() {
+
+            let html = " "
+            nomes.map(i => html += "<li>" + i + "<button>✏</button> <button> 🗑</button> </li>")
+            document.getElementById("listaUsuarios").innerHTML = html
+        }
+    </script>
+</body>
+
+</html>

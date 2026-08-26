@@ -17,3 +17,8 @@
 //>= maior ou igual
 //<= menor ou igual
 //!= diferente
+
+
+//WEB
+//alert = É para aparecer uma caixa de mensagem, sem cosneguir responder
+//Prompt = É para aparecer uma caixa de mensagem, que consiga responder

@@ -46,9 +46,11 @@ let prompt = require("prompt-sync") ()
 // - Grave na variável multa o valor da multa que João deverá pagar
 
 let peso_Peixes = prompt("Digite o peso do peixe")
-let multa = 4.25
-let calculo = (peso_peixes*multa)
-if(calculo>=50)
+let calculo = (peso_peixes - 50)
+let multa = calculo *4.25
+if(peso_peixes >50)
+    console.log("Excesso," + calculo)
+    console.log("multa," + multa)
 
 // ## 5. Time Vencedor
 // Faça um programa para ler o nome de 2 times de futebol e o número de gols marcados na partida
