@@ -14,10 +14,10 @@
     <img onclick="venderSorvete()" src="um-doce-sorvete-ilustracao-plana-sorvete-vector-desenho-colorido-desenho-de-sorvete-ilustrado-em_1310182-7337.avif" width="200px" height="200px">
     <hr/>
     <ul>
-        <li>Carrinho de sorvete - <strong id="textoCarrinhoSorvete"> $25 </strong>  <button onclick="carrinhoSorvete()">COMPRAR</button>
+        <li>Carrinho de sorvete $- <strong id="textoCarrinhoSorvete"> 25 </strong>  <button onclick="carrinhoSorvete()">COMPRAR</button>
         </li>
-        <li>Freezer Grande - $1000<button>COMPRAR</button></li>
-        <li>Marca Gourmet - $50.000<button>COMPRAR</button></li>
+        <li>Freezer Grande $ - <strong id="textoFreezer"> 1000</strong> <button onclick="Freezer()">COMPRAR</button></li>
+        <li>Marca Gourmet $ <strong id="textoGourmet">50000 </strong> <button onclick="Gourmet()">COMPRAR</button></li>
     </ul>
     <p>Entre com uma conta para ganhar $1.000<button onclick="resgatarRecompensa()">Resgatar recompensas</button></p>
     <button onclick="Painel()">painel do jogo</button>
@@ -26,11 +26,23 @@
         
         let dinheiro = parseInt(localStorage.getItem("dinheiro")) || 0
         let dinheiroPorClique = 1
-        let custoCarrinhoSorvete = 25
+        let custoCarrinhoSorvete = 
+        parseInt(localStorage.getItem("CustoCarrinhoSorvete")) || 25;
 
-       document.getElementById("textoDinheiro").innerHTML=dinheiro
-           
-      
+        let custoFreezer = 
+        parseInt(localStorage.getItem("CustoFreezer")) || 1000;
+        
+        let custoGourmet =
+        parseInt(localStorage.getItem("custoGourmet")) || 50000;
+
+        
+
+        document.getElementById("textoDinheiro").innerHTML=dinheiro
+        document.getElementById("textoFreezer").innerHTML = custoFreezer
+        
+        document.getElementById("textoCarrinhoSorvete").innerHTML = custoCarrinhoSorvete;
+
+        document.getElementById("textoGourmet").innerHTML = custoGourmet;
        function Painel(){
             location.href= "09_painel.html"
         }
@@ -67,9 +79,40 @@
             }else{
                 dinheiroPorClique += 1
                 dinheiro -= custoCarrinhoSorvete
+                localStorage.setItem("dinheiro", dinheiro)
                 document.getElementById("textoDinheiro").innerHTML=dinheiro
                 custoCarrinhoSorvete += parseInt(custoCarrinhoSorvete*0.2)
+                localStorage.setItem("custoCarrinhoSorvete", custoCarrinhoSorvete)
                 document.getElementById("textoCarrinhoSorvete").innerHTML = custoCarrinhoSorvete
+            }
+        }
+
+        function Freezer(){
+            if (dinheiro <custoFreezer){
+                alert("Dinheiro insuficiente...")
+            }else{
+                dinheiroPorClique += 100
+                dinheiro -= custoFreezer
+                localStorage.setItem("dinheiro",dinheiro)
+                document.getElementById("textoDinheiro").innerHTML = dinheiro
+                custoFreezer += parseInt(custoFreezer*0.2)
+                document.getElementById("textoFreezer").innerHTML = custoFreezer
+                localStorage.setItem("custoFreezer", custoFreezer)
+            }
+
+        }
+
+        function Gourmet(){
+            if (dinheiro <custoGourmet){
+                alert("Dinheiro insuficiente...")
+            }else{
+                dinheiroPorClique += 500
+                dinheiro -= custoGourmet
+                localStorage.setItem("dinheiro",dinheiro)
+                document.getElementById("textoDinheiro").innerHTML = dinheiro
+                custoGourmet += parseInt(custoGourmet*0.2)
+                document.getElementById("textoGourmet").innerHTML = custoGourmet
+                localStorage.setItem("custoGourmet", custoGourmet)
             }
         }
 
